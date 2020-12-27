@@ -40,7 +40,7 @@ leitor.question('Digite a rodada: ', function (answer) {
                     .then(function (response) {
                         let time = response.data.time.nome
                         let pontos = response.data.pontos
-                        console.log(pontos.toString().replace('.', ',') + '/' + time)
+                        console.log(`${time}/${pontos.toString().replace('.', ',')}`)
                     })
             }
         })
