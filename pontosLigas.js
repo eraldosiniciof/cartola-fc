@@ -33,7 +33,7 @@ leitor.question('Digite a rodada: ', function (answer) {
 
     const url = `https://api.cartolafc.globo.com/time/id/`
 
-    axios.get(url + `${times[0]}/${rodada}`)
+    axios.get(url + `${times[0]}/${rodada}`) // verifca o primeiro time, na rodada escolhida, e se caso não tiver pontuação (rodada errada) nao busca no api
         .then(() => {
             for (let i = 0; i < times.length; i++) {
                 axios.get(url + `${times[i]}/${rodada}`)
