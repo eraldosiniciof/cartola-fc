@@ -10,6 +10,6 @@ axios.get(urlParciais)
             // console.log(jogador, parciais[jogador]['apelido'] ,parciais[jogador]['pontuacao'])
             // parciaisJogadores[jogador] = parciais[jogador]['pontuacao']
             let ptsParciais = parciais[jogador]['pontuacao']
-            console.log(`${jogador}/${ptsParciais.toString().replace('.', ',')}`)
+            console.log(`${jogador};${ptsParciais.toString().replace('.', ',')}`)
         })
     })
