@@ -1,5 +1,6 @@
 const axios = require("axios");
 const readline = require("readline");
+const times = require("./../listaTimes.js");
 
 let rodada;
 
@@ -12,12 +13,7 @@ leitor.question("Digite a rodada: ", function (pergunta) {
   rodada = parseInt(pergunta);
   leitor.close();
 
-  const times = [
-    8210481, 254274, 558289, 28779310, 25307429, 16217672, 1454232, 3145767,
-    9365704, 20249583, 28518045, 17439680, 3845370, 25311431, 1608412, 13589622,
-    14732504, 14661957, 4355028, 8387242,
-  ];
-
+  const times = times.broto;
   const url = `https://api.cartolafc.globo.com/time/id/`;
 
   axios
