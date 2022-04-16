@@ -1,8 +1,9 @@
 const axios = require("axios");
 const readline = require("readline");
-const times = require("./listaTimes.js");
+const clubes = require("./listaTimes.js");
 
 let rodada;
+const times = clubes.ligas;
 
 const leitor = readline.createInterface({
   input: process.stdin,
@@ -13,7 +14,6 @@ leitor.question("Digite a rodada: ", function (answer) {
   rodada = parseInt(answer);
   leitor.close();
 
-  const times = times.ligas;
   const url = `https://api.cartolafc.globo.com/time/id/`;
 
   axios
@@ -22,7 +22,7 @@ leitor.question("Digite a rodada: ", function (answer) {
       for (let i = 0; i < times.length; i++) {
         axios.get(url + `${times[i]}/${rodada}`).then(function (response) {
           let time = response.data.time.nome;
-          let pontos = response.data.pontos;
+          let pontos = response.data.pontos || 0.0;
           console.log(`${time};${pontos.toString().replace(".", ",")}`);
         });
       }
